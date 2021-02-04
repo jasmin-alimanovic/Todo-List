@@ -1,0 +1,44 @@
+{% import "bootstrap/wtf.html" as wtf %} {% extends "home/dashboard.html" %} {%
+block title %} Task {% endblock %} {% block body %}
+<div class="wrapper">
+  <div class="task-add">
+    <div class="content-section">
+      <div class="center">
+        <h1>Add task</h1>
+        <br />
+        {{wtf.quick_form(form)}}
+      </div>
+    </div>
+    {% for row in tasks %}
+    <ul class="tasks" id="tasks{{row.id}}">
+      <li>
+        <h2>{{ row['name'] }}</h2>
+      </li>
+      {% if row.completed %}
+      <script>
+        task = document.getElementById(`tasks{{row.id}}`);
+        task.classList.add("done");
+      </script>
+      {% endif %}
+      <li>End: {{row['end_date']}}</li>
+      <div style="display: flex">
+        <a class="btn btn-success" href="/list/{{row.listID}}/task/{{row.id}}"
+          >Edit</a
+        >
+        <a
+          class="btn btn-danger"
+          href="/list/{{row.list_id}}/delete/task/{{row.id}}"
+          >Delete</a
+        >
+        <a
+          class="btn btn-primary"
+          href="/list/{{row.list_id}}/update/task/{{row.id}}"
+          >Update</a
+        >
+      </div>
+    </ul>
+    <br />
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "admin/index.html" %} {% block body %}
+
+<div class="wrapper">
+  <div class="push"></div>
+  <div class="intro-header">
+    {% if prazna         %}
+    <div class="naslov">
+      <h1>Tasks of {{tasks[0].list_id}}th list</h1>
+    </div>
+    <table id="table-user">
+      <thead>
+        <td>List id</td>
+        <td>List name</td>
+        <td>Completed</td>
+        <td>Date created</td>
+        <td>End date</td>
+      </thead>
+      <tbody>
+        {% for task in tasks %}
+        <tr class="list-row">
+          <td>{{task.id}}</td>
+          <td>{{task.name}}</td>
+          {% if task.completed %}
+          <td>Completed</td>
+          {% else %}
+          <td>Not completed</td>
+          {% endif %}
+          <td>{{task.date_created}}</td>
+          <td>{{task.end_date}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p id="table-user">List is empty</p>
+
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

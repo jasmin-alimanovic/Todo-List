@@ -1,0 +1,38 @@
+{% extends "admin/index.html" %} {% block body %}
+
+<div class="wrapper">
+  <div class="push"></div>
+  <div class="intro-header">
+    <div class="naslov">
+      <h1>Info</h1>
+      <h4>User {{user.username}}</h4>
+    </div>
+    <table id="table-user">
+      <thead>
+        <td>Username</td>
+        <td>First name</td>
+        <td>Last name</td>
+        <td>E-mail</td>
+        <td>Date created</td>
+        <td>Last seen</td>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{user.username}}</td>
+          <td>{{user.first_name}}</td>
+          <td>{{user.last_name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.date_created}}</td>
+          <td>{{user.last_seen}}</td>
+          <td>
+            <a href="delete/user/{{user.id}}"
+              ><i class="fa fa-minus"></i> Delete user</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

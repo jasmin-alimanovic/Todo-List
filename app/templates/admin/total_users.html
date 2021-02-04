@@ -1,0 +1,21 @@
+{% extends "admin/index.html" %} {% block body %}
+
+<div class="wrapper">
+  <div class="push"></div>
+  <div class="intro-header">
+    <div class="naslov">
+      <h1>Total users</h1>
+      <h4>There are total of {{duzina}} users</h4>
+    </div>
+    <ul id="users">
+      <li class="user">Username</li>
+      {% for user in users %}
+      <li onclick="href('users/{{user.username}}')" class="user">
+        {{user.username}}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% endblock %}

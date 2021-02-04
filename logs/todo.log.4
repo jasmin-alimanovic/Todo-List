@@ -1,0 +1,134 @@
+2020-10-31 12:31:39,934 ERROR: Exception on /favicon.ico [GET] [in D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\werkzeug\routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 1816, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 1744, in handle_http_exception
+    return handler(e)
+  File "D:\Jasmin\FlaskProjects\ToDoList\run.py", line 24, in not_found_error
+    mail.send(msg)
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask_mail.py", line 491, in send
+    with self.connect() as connection:
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask_mail.py", line 144, in __enter__
+    self.host = self.configure_host()
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask_mail.py", line 156, in configure_host
+    host = smtplib.SMTP_SSL(self.mail.server, self.mail.port)
+  File "C:\Users\Jasmin.DESKTOP-8B8P6T2.000\AppData\Local\Programs\Python\Python39\lib\smtplib.py", line 1034, in __init__
+    SMTP.__init__(self, host, port, local_hostname, timeout,
+  File "C:\Users\Jasmin.DESKTOP-8B8P6T2.000\AppData\Local\Programs\Python\Python39\lib\smtplib.py", line 253, in __init__
+    (code, msg) = self.connect(host, port)
+  File "C:\Users\Jasmin.DESKTOP-8B8P6T2.000\AppData\Local\Programs\Python\Python39\lib\smtplib.py", line 339, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "C:\Users\Jasmin.DESKTOP-8B8P6T2.000\AppData\Local\Programs\Python\Python39\lib\smtplib.py", line 1041, in _get_socket
+    new_socket = self.context.wrap_socket(new_socket,
+  File "C:\Users\Jasmin.DESKTOP-8B8P6T2.000\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "C:\Users\Jasmin.DESKTOP-8B8P6T2.000\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "C:\Users\Jasmin.DESKTOP-8B8P6T2.000\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLError: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1122)
+2020-10-31 12:31:45,938 ERROR: Exception on / [GET] [in D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Jasmin\FlaskProjects\ToDoList\app\home\views.py", line 17, in homepage
+    elif current_user.is_admin is True and current_user.is_authenticated:
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: 'AnonymousUserMixin' object has no attribute 'is_admin'
+2020-10-31 12:31:46,721 ERROR: Exception on /favicon.ico [GET] [in D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\werkzeug\routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 1816, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 1744, in handle_http_exception
+    return handler(e)
+  File "D:\Jasmin\FlaskProjects\ToDoList\run.py", line 24, in not_found_error
+    mail.send(msg)
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask_mail.py", line 491, in send
+    with self.connect() as connection:
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask_mail.py", line 144, in __enter__
+    self.host = self.configure_host()
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask_mail.py", line 156, in configure_host
+    host = smtplib.SMTP_SSL(self.mail.server, self.mail.port)
+  File "C:\Users\Jasmin.DESKTOP-8B8P6T2.000\AppData\Local\Programs\Python\Python39\lib\smtplib.py", line 1034, in __init__
+    SMTP.__init__(self, host, port, local_hostname, timeout,
+  File "C:\Users\Jasmin.DESKTOP-8B8P6T2.000\AppData\Local\Programs\Python\Python39\lib\smtplib.py", line 253, in __init__
+    (code, msg) = self.connect(host, port)
+  File "C:\Users\Jasmin.DESKTOP-8B8P6T2.000\AppData\Local\Programs\Python\Python39\lib\smtplib.py", line 339, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "C:\Users\Jasmin.DESKTOP-8B8P6T2.000\AppData\Local\Programs\Python\Python39\lib\smtplib.py", line 1041, in _get_socket
+    new_socket = self.context.wrap_socket(new_socket,
+  File "C:\Users\Jasmin.DESKTOP-8B8P6T2.000\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "C:\Users\Jasmin.DESKTOP-8B8P6T2.000\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "C:\Users\Jasmin.DESKTOP-8B8P6T2.000\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLError: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1122)
+2020-10-31 12:31:48,827 ERROR: Exception on / [GET] [in D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Jasmin\FlaskProjects\ToDoList\app\home\views.py", line 17, in homepage
+    elif current_user.is_admin is True and current_user.is_authenticated:
+  File "D:\Jasmin\FlaskProjects\ToDoList\env\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: 'AnonymousUserMixin' object has no attribute 'is_admin'

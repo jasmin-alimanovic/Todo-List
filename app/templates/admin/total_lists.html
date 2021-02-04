@@ -1,0 +1,29 @@
+{% extends "admin/index.html" %} {% block body %}
+
+<div class="wrapper">
+  <div class="push"></div>
+  <div class="intro-header">
+    <div class="naslov">
+      <h1>Total lists</h1>
+      <h4>There are total of {{duzina}} lists</h4>
+    </div>
+    <table id="table-user">
+      <thead>
+        <td>List id</td>
+        <td>List name</td>
+        <td>Date created</td>
+      </thead>
+      <tbody>
+        {% for list in lists %}
+        <tr class="list-row" onclick="href('list/{{list.id}}/tasks')">
+          <td>{{list.id}}</td>
+          <td>{{list.name}}</td>
+          <td>{{list.date_created}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

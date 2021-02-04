@@ -1,0 +1,116 @@
+<!-- app/templates/home/dashboard.html -->
+
+<!-- app/templates/base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{Title}} | To Do</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="{{ url_for('static', filename='css/style.css') }}"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='img/favicon.ico') }}"
+    />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-default navbar-fixed-top topnav"
+      role="navigation"
+    >
+      <div class="container topnav">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand topnav" href="{{ url_for('home.homepage') }}"
+            >To Do</a
+          >
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{ url_for('home.homepage') }}">Home</a></li>
+            <li><a href="{{ url_for('auth.profile') }}">Profile</a></li>
+            <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% block body %}
+    <div class="wrapper">
+      <div class="push"></div>
+
+      <div class="intro-header list-container">
+        <form
+          class="list-form"
+          style="margin-left: 2rem"
+          action="/addlist"
+          method="post"
+        >
+          <h2>Add new list</h2>
+          <label for="listName">List name:</label>
+          <input class="form-control" type="text" name="listName" required />
+          <br />
+          <input class="btn btn-primary" type="submit" value="Save" />
+        </form>
+        <hr />
+        <br />
+        <div>
+          {% for row in lists %}
+          <div class="lists" style="margin-left: 2rem">
+            <h2>{{row['name']}}</h2>
+            <div style="display: flex">
+              <a class="btn btn-info" href="/list/{{row.id}}">View tasks</a>
+              <a class="btn btn-danger" href="/list/delete/{{row.id}}"
+                >Delete</a
+              >
+            </div>
+          </div>
+          <br />
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <ul class="list-inline">
+              <li><a href="{{ url_for('home.homepage') }}">Home</a></li>
+              <li class="footer-menu-divider">⋅</li>
+              <li><a href="{{ url_for('auth.profile') }}">Profile</a></li>
+              <li class="footer-menu-divider">⋅</li>
+              <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+            </ul>
+            <hr />
+            <p class="copyright text-muted small">
+              Copyright © 2020. All Rights Reserved
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="{{url_for('static', filename='js/app.js')}}"></script>
+  </body>
+</html>

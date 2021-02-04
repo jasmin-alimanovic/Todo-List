@@ -1,0 +1,28 @@
+{% extends "home/dashboard.html" %} {% block Title%} Profile {% endblock %} {%
+block body %}
+<div class="wrapper">
+  <div class="push"></div>
+  <div class="intro-header">
+    <div id="profile-data">
+      <ul id="profile-list">
+        <li
+          class="profile-info"
+          onclick="show_profile_info('{{firstName}}', '{{lastName}}', '{{email}}', '{{username}}')"
+        >
+          Profile info
+        </li>
+        <li onclick="change_password()">Change password</li>
+        <li>
+          <a
+            style="text-decoration: none; color: white"
+            href="{{url_for('auth.logout')}}"
+            >Logout</a
+          >
+        </li>
+      </ul>
+      <div id="show-data"></div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

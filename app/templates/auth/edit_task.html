@@ -1,0 +1,37 @@
+{% extends "home/dashboard.html" %} {% block body %}
+<div class="wrapper">
+  <div class="push"></div>
+
+  <div class="intro-header list-container">
+    <form
+      class="list-form"
+      style="margin-left: 2rem"
+      action="/list/task/{{task.id}}"
+      method="post"
+    >
+      <h2>Edit task</h2>
+      <label for="taskname">Task name:</label>
+      <input
+        class="form-control"
+        value="{{task.name}}"
+        type="text"
+        name="taskname"
+        required
+      />
+      <label for="enddate">Task name:</label>
+      <input
+        class="form-control"
+        type="datetime-local"
+        name="enddate"
+        value="{{task.end_date}}"
+        required
+      />
+      <br />
+      <input class="btn btn-primary" type="submit" value="Save" />
+    </form>
+    <hr />
+    <br />
+  </div>
+</div>
+
+{% endblock %}
